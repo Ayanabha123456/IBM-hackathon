@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classimax</title>
+  {% load static %}
+  <!-- FAVICON -->
+  <link href="img/favicon.png" rel="shortcut icon">
+  <!-- PLUGINS CSS STYLE -->
+  <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'COVID/plugins/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'COVID/plugins/bootstrap/css/bootstrap-slider.css' %}">
+  <!-- Font Awesome -->
+  <link href="{% static 'COVID/plugins/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ab210669a6.js" crossorigin="anonymous"></script>
+  <!-- Owl Carousel -->
+  <link href="{% static 'COVID/plugins/slick-carousel/slick/slick.css' %}" rel="stylesheet">
+  <link href="{% static 'COVID/plugins/slick-carousel/slick/slick-theme.css' %}" rel="stylesheet">
+  <!-- Fancy Box -->
+  <link href="{% static 'COVID/plugins/fancybox/jquery.fancybox.pack.css' %}" rel="stylesheet">
+  <link href="{% static 'COVID/plugins/jquery-nice-select/css/nice-select.css' %}" rel="stylesheet">
+  <!-- CUSTOM CSS -->
+  <link href="{% static 'COVID/style.css' %}" rel="stylesheet">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body class="body-wrapper">
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light navigation">
+					<a class="navbar-brand" href="index.html">
+						<img src="{% static 'COVID/hygiene-kart-logo.png' %}" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active">
+								<a class="nav-link" href="{% url 'COVID:home' %}">Home</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="{% url 'COVID:cart' %}" style="color: rgba(0, 0, 0, 0.5);">Cart</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Category <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="{% url 'COVID:listed' cat='Mask' %}">Mask</a>
+									<a class="dropdown-item" href="{% url 'COVID:listed' cat='Medicine' %}">Medicine</a>
+									<a class="dropdown-item" href="{% url 'COVID:listed' cat='Toiletry' %}">Toiletry Item</a>
+									<a class="dropdown-item" href="{% url 'COVID:listed' cat='Grocery' %}">Food</a>
+									<a class="dropdown-item" href="{% url 'COVID:listed' cat='Sanitizer' %}">Sanitizer</a>
+									<a class="dropdown-item" href="{% url 'COVID:listed' cat='Emergency' %}">Emergency</a>
+								</div>
+							</li>
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10">
+							<li class="nav-item">
+								<h4>Welcome {{user}}</h4>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="page-search">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Advance Search -->
+				<div class="advance-search">
+					<form>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<input type="text" class="form-control my-2 my-lg-0" id="inputtext4" placeholder="What are you looking for">
+							</div>
+							<div class="form-group col-md-4">
+								<input type="text" class="form-control my-2 my-lg-0" id="inputLocation4" placeholder="Location">
+							</div>
+							<div class="form-group col-md-2">
+								<button type="submit" class="btn btn-warning">Search Now</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section-sm">
+	<div class="container">
+		<!-- <div class="row">
+			<div class="col-md-12">
+				<div class="search-result bg-gray">
+					<h2>Results For "Electronics"</h2>
+					<p>123 Results on 12 December, 2017</p>
+				</div>
+			</div>
+		</div> -->
+		<div class="row">
+			<!--===================================
+			=            Clients Section        =
+			====================================-->
+			
+			<section class="client-slider-03">
+				<!-- Container Start -->
+				<div class="container">
+					<div class="row">
+						<!-- Client Slider -->
+						<div class="col-md-12">
+							<!-- Client Slider -->
+							<div class="category-slider">
+							    <!-- Client 01 -->
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Mask' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-head-side-mask"></i>
+							            <h4>Mask</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Medicine' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-pills"></i>
+							            <h4>Medicine</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Toiletry' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-toilet-paper"></i>
+							            <h4>Toiletry Item</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Grocery' %}">
+							            <!-- Slider Image -->
+							            <i class="fa fa-cutlery"></i>
+							            <h4>Food</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Sanitizer' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-pump-medical"></i>
+							            <h4>Sanitizer</h4>
+							        </a>
+								</div>
+								<div class="item">
+							        <a href="{% url 'COVID:listed' cat='Emergency' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-first-aid"></i>
+							            <h4>Emergency</h4>
+							        </a>
+							    </div>
+							
+								<!-- Client 01 -->
+								<div class="item">
+							        <a href="{% url 'COVID:listed' cat='Mask' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-head-side-mask"></i>
+							            <h4>Mask</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Medicine' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-pills"></i>
+							            <h4>Medicine</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Toiletry' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-toilet-paper"></i>
+							            <h4>Toiletry Item</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Grocery' %}">
+							            <!-- Slider Image -->
+							            <i class="fa fa-cutlery"></i>
+							            <h4>Food</h4>
+							        </a>
+							    </div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Sanitizer' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-pump-medical"></i>
+							            <h4>Sanitizer</h4>
+							        </a>
+								</div>
+							    <div class="item">
+							        <a href="{% url 'COVID:listed' cat='Emergency' %}">
+							            <!-- Slider Image -->
+							            <i class="fas fa-first-aid"></i>
+							            <h4>Emergency</h4>
+							        </a>
+							    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Container End -->
+			</section>
+		</div>
+		
+
+				<h1>Cart</h1>
+{% for thing in things %}
+<div class="card" style="width: 18rem;">
+	<div class="card-body">
+	  <h5 class="card-title">{{thing.name}}</h5>
+	  <p class="card-text">Price : {{thing.price}}</p>
+	  <p class='card-text'>Amount : {{thing.quantity}}</p>
+	</div>
+  </div>
+{% endfor %}
+<div class="jumbotron">
+    <h1 class="display-4">Total purchase = {{total}}</h1>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="{% url 'COVID:done' %}" role="button">Done</a>
+    </p>
+  </div>
+</section>
+<!--============================
+=            Footer            =
+=============================-->
+
+<footer class="footer section section-sm">
+  
+    <h3 style='color:white;text-align:center;'>
+    Copyright &copy; Rithwick Chittereddy, Ayanabha Jana, Kaustubh Jha, Ashish Kumar</h3>
+  
+</footer>
+
+<!-- JAVASCRIPTS -->
+<script src="{% static 'COVID/plugins/jQuery/jquery.min.js' %}"></script>
+<script src="{% static 'COVID/plugins/bootstrap/js/popper.min.js' %}"></script>
+<script src="{% static 'COVID/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'COVID/plugins/bootstrap/js/bootstrap-slider.js' %}"></script>
+  <!-- tether js -->
+<script src="{% static 'COVID/plugins/tether/js/tether.min.js' %}"></script>
+<script src="{% static 'COVID/plugins/raty/jquery.raty-fa.js' %}"></script>
+<script src="{% static 'COVID/plugins/slick-carousel/slick/slick.min.js' %}"></script>
+<script src="{% static 'COVID/plugins/jquery-nice-select/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'COVID/plugins/fancybox/jquery.fancybox.pack.js' %}"></script>
+<script src="{% static 'COVID/plugins/smoothscroll/SmoothScroll.min.js' %}"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="{% static 'COVID/plugins/google-map/gmap.js' %}"></script>
+<script src="{% static 'COVID/script.js' %}"></script>
+
+</body>
+
+</html>
