@@ -1,9 +1,12 @@
 from django.shortcuts import render,get_object_or_404
-from .models import User, Cart, Item
+from .models import User, Cart, Item, Transaction
 from django.template import loader
 from django.urls import reverse
 # Create your views here.
 from django.http import HttpResponse,HttpResponseRedirect
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 def index(request):
     return render(request,'COVID/login.html')
 
@@ -86,8 +89,23 @@ def cart(request):
         return render(request,'COVID/cart.html',context)
 
 def done(request):
-    Cart.objects.all().delete()
-    return HttpResponseRedirect(reverse('COVID:home'))
+    transact=Cart.objects.all()
+    str=""
+    for selection in transact:
+        str=str+selection.name+"."
+    fstr=str[:len(str)-1]
+    transaction=Transaction(transact=fstr)
+    transaction.save()
+    transact_all=Transaction.objects.all()
+    A=[]
+    for i_transact in transact_all:
+        L=i_transact.split(".")
+        A.append(L)
+    from apyori import apriori
+    rules = apriori(L, min_support = 0.003, min_confidence = 0.2, min_lift = 3, min_length = 2)
+    context={'rules':rules}
+    transact.delete()
+    return render(request,'COVID/suggestion.html',context)
 
 
 

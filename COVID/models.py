@@ -15,4 +15,6 @@ class Item(models.Model):
     category = models.CharField(max_length=20)
     price = models.IntegerField()
     stock = models.IntegerField(default = 0)
+class Transaction(models.Model):
+    transact = models.CharField(max_length=500)
 
